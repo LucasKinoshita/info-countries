@@ -15,24 +15,28 @@ const CountryInfo = ({ country }: CountryInfoProps) => {
       </Link>
 
       <h1>
-        {country?.name} {country?.emoji}
+        {country.name} {country.emoji}
       </h1>
 
       <span>
         <h2>Official language:</h2>
         <ul>
-          {country?.languages.map((language) => (
+          {country.languages.map((language) => (
             <li key={language.name}>{language.name}</li>
           ))}
         </ul>
       </span>
 
-      <h2>States</h2>
-      <ul>
-        {country?.states.map((state) => (
-          <li key={state.name}>{state.name}</li>
-        ))}
-      </ul>
+      {!!country.states?.length && (
+        <>
+          <h2>States</h2>
+          <ul>
+            {country.states.map((state) => (
+              <li key={state.name}>{state.name}</li>
+            ))}
+          </ul>
+        </>
+      )}
     </S.WrapperCardInfo>
   )
 }
