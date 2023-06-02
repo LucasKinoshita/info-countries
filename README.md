@@ -5,14 +5,14 @@ A simple application with information about countries.
 
 - [Node.js](https://nodejs.org/)
 
-### 🔧 Instalação
+### 🔧 Get started
 
 #### Clone project
 ```
 git clone git@github.com:LucasKinoshita/info-countries.git
 ```
 
-#### Install
+#### Install 
 ```
 yarn install
 ```
