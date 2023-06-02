@@ -1,7 +1,14 @@
-import { Link } from 'react-router-dom'
-import { ArrowLeft as ArrowLeftIcon } from '@styled-icons/bootstrap'
 import { Country } from '../../types/country'
-import * as S from './styles'
+import { ArrowLeft as ArrowLeftIcon } from '@styled-icons/bootstrap'
+import {
+  BackButton,
+  LanguageListWrapper,
+  LanguagesTitle,
+  StateListWrapper,
+  StatesTitle,
+  Name,
+  Wrapper
+} from './styles'
 
 export type CountryInfoProps = {
   country: Country
@@ -9,35 +16,34 @@ export type CountryInfoProps = {
 
 const CountryInfo = ({ country }: CountryInfoProps) => {
   return (
-    <S.WrapperCardInfo>
-      <Link to="/" aria-label="back to home">
-        <ArrowLeftIcon size={20} color="#3a3845" />
-      </Link>
+    <Wrapper>
+      <BackButton to="/" aria-label="back to home">
+        <ArrowLeftIcon />
+      </BackButton>
 
-      <h1>
+      <Name>
         {country.name} {country.emoji}
-      </h1>
+      </Name>
 
-      <span>
-        <h2>Official language:</h2>
-        <ul>
-          {country.languages.map((language) => (
-            <li key={language.name}>{language.name}</li>
-          ))}
-        </ul>
-      </span>
+      <LanguagesTitle>Official language:</LanguagesTitle>
+
+      <LanguageListWrapper>
+        {country.languages.map((language) => (
+          <li key={language.name}>{language.name}</li>
+        ))}
+      </LanguageListWrapper>
 
       {!!country.states?.length && (
         <>
-          <h2>States</h2>
-          <ul>
+          <StatesTitle>States</StatesTitle>
+          <StateListWrapper>
             {country.states.map((state) => (
               <li key={state.name}>{state.name}</li>
             ))}
-          </ul>
+          </StateListWrapper>
         </>
       )}
-    </S.WrapperCardInfo>
+    </Wrapper>
   )
 }
 

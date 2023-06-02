@@ -1,25 +1,30 @@
 import { InfoCircle as InfoCircleIcon } from '@styled-icons/bootstrap/InfoCircle'
-import { Link } from 'react-router-dom'
-import * as S from './styles'
+import {
+  ContentConteiner,
+  Flag,
+  GoToInfoButton,
+  Title,
+  WrapperCard
+} from './styles'
 
 type CountryCard = {
-  name: string
   code: string
   emoji: string
+  name: string
 }
 
-const CountryCard = ({ name, code, emoji }: CountryCard) => {
+const CountryCard = ({ code, emoji, name }: CountryCard) => {
   return (
-    <S.WrapperCard>
-      <S.ContentConteiner>
-        <S.FlagCard>{emoji}</S.FlagCard>
-        <S.TextCard>{name}</S.TextCard>
-      </S.ContentConteiner>
+    <WrapperCard>
+      <ContentConteiner>
+        <Flag>{emoji}</Flag>
+        <Title>{name}</Title>
+      </ContentConteiner>
 
-      <Link to={`country/${code}`} aria-label="go to information">
-        <InfoCircleIcon color="#3a3845" size={20} />
-      </Link>
-    </S.WrapperCard>
+      <GoToInfoButton to={`country/${code}`} aria-label="go to information">
+        <InfoCircleIcon />
+      </GoToInfoButton>
+    </WrapperCard>
   )
 }
 
