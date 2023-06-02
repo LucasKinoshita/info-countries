@@ -8,9 +8,9 @@ export const mock = {
     data: {
       country: {
         emoji: '🇧🇷',
+        code: 'BR',
         languages: [
           {
-            code: 'pt',
             name: 'Portuguese'
           }
         ],

@@ -36,4 +36,24 @@ describe('<CountryInfo />', () => {
     expect(screen.getByText(/roraima/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/back to home/i)).toHaveAttribute('href', '/')
   })
+
+  it('should render the component without states', () => {
+    render(
+      <Router>
+        <CountryInfo
+          country={{
+            name: 'brazil',
+            emoji: '🇧🇷',
+            code: 'BR',
+            languages: [{ name: 'portuguese' }],
+            states: []
+          }}
+        />
+      </Router>
+    )
+
+    expect(
+      screen.queryByRole('heading', { name: /states/i })
+    ).not.toBeInTheDocument()
+  })
 })

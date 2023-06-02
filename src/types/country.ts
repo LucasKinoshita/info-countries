@@ -11,5 +11,5 @@ export type Country = {
   emoji: string
   code: string
   languages: LanguagesProps[]
-  states: StatesProps[]
+  states?: StatesProps[]
 }
