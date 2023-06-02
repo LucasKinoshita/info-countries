@@ -16,7 +16,7 @@ const CountryPage = () => {
     variables: { code: code }
   })
 
-  if (loading) return <S.Loading>Carregando...</S.Loading>
+  if (loading) return <S.Loading>Loading...</S.Loading>
 
   return <CountryInfo country={data!.country} />
 }

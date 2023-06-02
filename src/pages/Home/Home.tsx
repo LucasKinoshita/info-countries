@@ -11,7 +11,7 @@ type HomePageProps = {
 const HomePage = () => {
   const { data, loading } = useQuery<HomePageProps>(GET_COUNTRIES_QUERY)
 
-  if (loading) return <S.Loading>Carregando...</S.Loading>
+  if (loading) return <S.Loading>Loading...</S.Loading>
 
   return (
     <S.Wrapper>
