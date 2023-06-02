@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { CountryInfo } from '.'
 
 describe('<CountryInfo />', () => {
-  it('should render the component', async () => {
+  it('should render the component', () => {
     render(
       <Router>
         <CountryInfo
@@ -22,15 +22,18 @@ describe('<CountryInfo />', () => {
       </Router>
     )
 
-    expect(await screen.findByText(/brazil/i)).toBeInTheDocument()
-    expect(await screen.findByText(/🇧🇷/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /brazil/i })).toBeInTheDocument()
+    expect(screen.getByText(/🇧🇷/i)).toBeInTheDocument()
 
-    expect(await screen.findByText(/official language:/i)).toBeInTheDocument()
-    expect(await screen.findByText(/portuguese/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /official language:/i })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/portuguese/i)).toBeInTheDocument()
 
-    expect(await screen.findByText(/states/i)).toBeInTheDocument()
-    expect(await screen.findByText(/paraíba/i)).toBeInTheDocument()
-    expect(await screen.findByText(/minas gerais/i)).toBeInTheDocument()
-    expect(await screen.findByText(/roraima/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /states/i })).toBeInTheDocument()
+    expect(screen.getByText(/paraíba/i)).toBeInTheDocument()
+    expect(screen.getByText(/minas gerais/i)).toBeInTheDocument()
+    expect(screen.getByText(/roraima/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/back to home/i)).toHaveAttribute('href', '/')
   })
 })

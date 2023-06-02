@@ -16,7 +16,7 @@ const CountryCard = ({ name, code, emoji }: CountryCard) => {
         <S.TextCard>{name}</S.TextCard>
       </S.ContentConteiner>
 
-      <Link to={`country/${code}`}>
+      <Link to={`country/${code}`} aria-label="go to information">
         <InfoCircleIcon color="#3a3845" size={20} />
       </Link>
     </S.WrapperCard>

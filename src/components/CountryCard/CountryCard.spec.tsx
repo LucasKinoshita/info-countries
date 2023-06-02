@@ -13,5 +13,9 @@ describe('<CountryCard />', () => {
     expect(screen.getByText(/brazil/i)).toBeInTheDocument()
     expect(screen.getByRole('link')).toHaveAttribute('href', '/country/BR')
     expect(screen.getByText(/🇧🇷/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/go to information/i)).toHaveAttribute(
+      'href',
+      '/country/BR'
+    )
   })
 })

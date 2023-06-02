@@ -10,7 +10,7 @@ export type CountryInfoProps = {
 const CountryInfo = ({ country }: CountryInfoProps) => {
   return (
     <S.WrapperCardInfo>
-      <Link to="/">
+      <Link to="/" aria-label="back to home">
         <ArrowLeftIcon size={20} color="#3a3845" />
       </Link>
 
@@ -19,7 +19,7 @@ const CountryInfo = ({ country }: CountryInfoProps) => {
       </h1>
 
       <span>
-        Official language:
+        <h2>Official language:</h2>
         <ul>
           {country?.languages.map((language) => (
             <li key={language.name}>{language.name}</li>
